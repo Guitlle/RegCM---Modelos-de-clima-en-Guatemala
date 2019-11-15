@@ -65,6 +65,6 @@ for dir in $__types; do
 	cd ..
 	cd $dir 
 	wget ${ICTP_DATASITE}/CLM45/$dir/ -O - | \
-	wget -A ".nc" -l1 --no-parent --base=${ICTP_DATASITE}/CLM45/$dir/ -nd -Fri -; 
+	wget -A ".nc" -l1 --continue --no-parent --base=${ICTP_DATASITE}/CLM45/$dir/ -nd -Fri -; 
 done
 ```
