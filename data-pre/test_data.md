@@ -14,6 +14,7 @@ cd SURFACE
 curl -o GTOPO_DEM_30s.nc ${ICTP_DATASITE}/SURFACE/GTOPO_DEM_30s.nc
 curl -o GLCC_BATS_30s.nc ${ICTP_DATASITE}/SURFACE/GLCC_BATS_30s.nc
 curl -o GLZB_SOIL_30s.nc ${ICTP_DATASITE}/SURFACE/GLZB_SOIL_30s.nc
+curl -o GMTED_DEM_30s.nc ${ICTP_DATASITE}/SURFACE/GMTED_DEM_30s.nc
 
 cd $REGCM_GLOBEDAT
 cd SURFACE
@@ -40,4 +41,30 @@ for type in $__types
   done
 done
 
+cd $REGCM_GLOBEDAT
+cd CLM
+curl -o mksrf_fmax.nc ${ICTP_DATASITE}/CLM/mksrf_fmax.nc
+curl -o mksrf_glacier.nc ${ICTP_DATASITE}/CLM/mksrf_glacier.nc
+curl -o mksrf_lai.nc ${ICTP_DATASITE}/CLM/mksrf_lai.nc
+curl -o mksrf_lanwat.nc ${ICTP_DATASITE}/CLM/mksrf_lanwat.nc
+curl -o mksrf_navyoro_20min.nc ${ICTP_DATASITE}/CLM/mksrf_navyoro_20min.nc
+curl -o mksrf_pft.nc ${ICTP_DATASITE}/CLM/mksrf_pft.nc
+curl -o mksrf_soicol_clm2.nc ${ICTP_DATASITE}/CLM/mksrf_soicol_clm2.nc
+curl -o mksrf_soitex.10level.nc ${ICTP_DATASITE}/CLM/mksrf_soitex.10level.nc
+curl -o mksrf_urban.nc ${ICTP_DATASITE}/CLM/mksrf_urban.nc
+curl -o pft-physiology.c070207 ${ICTP_DATASITE}/CLM/pft-physiology.c070207
+curl -o pft-physiology.c070207.readme ${ICTP_DATASITE}/CLM/pft-physiology.c070207.readme
+curl -o rdirc.05.061026 ${ICTP_DATASITE}/CLM/rdirc.05.061026
+
+
+cd $REGCM_GLOBEDAT
+cd CLM45
+mkdir megan pftdata snicardata surface
+export __types="megan pftdata snicardata surface"
+for dir in $__types; do 
+	cd ..
+	cd $dir 
+	wget ${ICTP_DATASITE}/CLM45/$dir/ -O - | \
+	wget -A ".nc" -l1 --no-parent --base=${ICTP_DATASITE}/CLM45/$dir/ -nd -Fri -; 
+done
 ```
