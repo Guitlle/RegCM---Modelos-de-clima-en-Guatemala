@@ -11,7 +11,7 @@ RUN apk add --no-cache musl-dev
 RUN apk add --no-cache gfortran gdb make
 RUN apk add --no-cache g++
 
-RUN cd /opt/ && wget http://gforge.ictp.it/gf/download/frsrelease/259/1845/RegCM-4.7.0.tar.gz && tar xvfz RegCM-4.7.0.tar.gz && cd RegCM-4.7.0 
+RUN cd /opt/ && wget http://gforge.ictp.it/gf/download/frsrelease/252/1580/RegCM-4.5.0.tar.gz && tar xvfz RegCM-4.5.0.tar.gz && cd RegCM-4.5.0 
 RUN cd /opt/ && mkdir netcdf && cd netcdf && wget https://github.com/Unidata/netcdf-c/archive/v4.7.2.tar.gz 
 
 RUN apk add --no-cache curl-dev m4 
@@ -23,6 +23,6 @@ RUN cd /opt/netcdf && wget https://github.com/Unidata/netcdf-fortran/archive/v4.
 RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing openmpi openmpi-dev
 RUN cd /opt/netcdf/netcdf-fortran-4.5.2/ && ./configure && make && make install
 
-RUN cd /opt/RegCM-4.7.0 && ./configure && make && make install
+RUN cd /opt/RegCM-4.5.0 && ./configure && make && make install
 
 RUN apk add openssh nano
