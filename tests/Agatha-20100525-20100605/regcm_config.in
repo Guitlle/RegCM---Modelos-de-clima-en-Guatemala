@@ -1,0 +1,106 @@
+! GTM Non - hydrostatic
+&coreparam
+ idynamic = 2,
+&dimparam
+ iy     = 128,
+ jx     = 128,
+ kz     = 18,
+ nsg    = 1,
+ /
+ &geoparam
+ iproj = 'LAMCON',
+ ds = 5,
+ ptop = 5.0,
+ clat = 15.32,
+ clon = -90.39,
+ plat = 15.32,
+ plon = -90.39,
+ truelatl = 30.0,
+ truelath = 60.0,
+ i_band = 0,
+ /
+ &terrainparam
+ domname = 'test_001',
+ lakedpth = .false.,
+ fudge_lnd   = .false.,
+ fudge_lnd_s = .false.,
+ fudge_tex   = .false.,
+ fudge_tex_s = .false.,
+ dirter = 'input/',
+ inpter = '/data/', 
+ /
+ &debugparam
+ debug_level = 0,
+ /
+ &boundaryparam
+ nspgx  = 12,
+ nspgd  = 12,
+ /
+ &globdatparam
+ ibdyfrq = 6,
+ ssttyp = 'OI_WK',
+ dattyp = 'EIN15',
+ gdate1 = 2010052500,
+ gdate2 = 2010060500,
+ dirglob = 'input/',
+ inpglob = '/data/',
+ /
+ &restartparam
+ ifrest  = .false. ,
+ mdate0  = 2010052500,
+ mdate1  = 2010052500,
+ mdate2  = 2010060500,
+ /
+ &timeparam
+ dtrad   =    30.,
+ dtabem  =    1.,
+ dtsrf   =   150.,
+ dt      =   22.,
+ /
+ &outparam
+ ifsave  = .true. ,
+   savfrq  =    48.,
+ ifatm  = .true. ,
+   atmfrq  =     6.,
+ ifrad   = .true. ,
+   radfrq  =     6.,
+ ifsrf   = .true. ,
+ ifsub   = .true. ,
+   srffrq  =     3.,
+ ifchem  = .false.,
+   chemfrq =     6.,
+ dirout='output/'
+ /
+ &physicsparam
+ iboudy  =          5,
+ ibltyp  =          1,
+ icup_lnd =         4,
+ icup_ocn =         4,
+ ipptls  =          1,
+ iocnflx =          2,
+ ipgf    =          0,
+ iemiss  =          0,
+ lakemod =          0,
+ ichem   =          0,
+ idcsst = 0,
+ iseaice = 0,
+ idesseas = 0,
+ iconvlwp = 0,
+ /
+ &subexparam
+ /
+ &grellparam
+ /
+ &emanparam
+ /
+ &holtslagparam
+ /
+ &clm_inparm
+ fpftcon = 'pft-physiology.c130503.nc',
+ fsnowoptics = 'snicar_optics_5bnd_c090915.nc',
+ fsnowaging = 'snicar_drdt_bst_fit_60_c070416.nc',
+ /
+ &clm_soilhydrology_inparm
+ /
+ &clm_hydrology1_inparm
+ /
